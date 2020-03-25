@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %} Django İkinci El Sitesi{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %} Anasayfa kısa açıklama{% endblock %}">
+    <meta name="keywords" content="{% block keywords %} Anasayfa anahtar kelimeler{% endblock %}">
+    <meta name="author" content="">
+    <!-- Bootstrap styles -->
+    {% load static %}
+
+    <link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet"/>
+    <!-- Customize styles -->
+    <link href="{% static 'style.css' %}" rel="stylesheet"/>
+    <!-- font awesome styles -->
+    <link href="{% static 'assets/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+    <!--[if IE 7]>
+    <link href="css/font-awesome-ie7.min.css" rel="stylesheet">
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="{% static 'assets/ico/favicon.ico' %}">
+    {% block head %} {% endblock %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="container">
+    <div id="gototop"></div>
+    <div class="row">
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
+        {% block slider %} {% include 'slider.html' %} {% endblock %}
+        {% block content %} {% include 'content.html' %} {% endblock %}
+    </div>
+    {% include 'footer.html' %}
+    {% block foot %} {% endblock %}
+</div>
+</body>
+</html>
