@@ -123,14 +123,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Second Commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1585337748218">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1585337995789">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585337748218" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585337995789" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1585167064940">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585167064940" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585337988354">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585337988354" />
     <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1585337946417">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
