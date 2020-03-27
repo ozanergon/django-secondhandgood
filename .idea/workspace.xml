@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9c63bcd-ef5f-43c6-a33b-28d1978fca0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="b9c63bcd-ef5f-43c6-a33b-28d1978fca0f" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,17 +94,30 @@
       <workItem from="1585166618844" duration="558000" />
       <workItem from="1585167206245" duration="13000" />
       <workItem from="1585167242950" duration="21000" />
+      <workItem from="1585337474799" duration="231000" />
     </task>
+    <task id="LOCAL-00001" summary="Second Commit">
+      <created>1585337708147</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1585337708148</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Second Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Second Commit" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1585167259444">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1585337706254">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585167259444" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585337706254" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1585167064940">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
