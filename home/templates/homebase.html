@@ -32,12 +32,13 @@
 <div class="container">
     <div id="gototop"></div>
     <div class="row">
-        {% block sidebar %} {% include 'sidebar.html' %} {% endblock %}
-        {% block slider %} {% include 'slider.html' %} {% endblock %}
-        {% block content %} {% include 'content.html' %} {% endblock %}
+        {% block sidebar %}  {% endblock %}
+        {% block slider %}  {% endblock %}
+        {% block content %}  {% endblock %}
+
     </div>
-    {% include 'footer.html' %}
     {% block foot %} {% endblock %}
 </div>
+{% include 'footer.html' %}
 </body>
 </html>
