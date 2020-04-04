@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c63bcd-ef5f-43c6-a33b-28d1978fca0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/home/migrations/0004_auto_20200403_2323.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/migrations/0004_auto_20200403_2323.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/migrations/0005_auto_20200404_1829.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/product/migrations/0005_auto_20200404_1829.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/iletisim.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/iletisim.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +111,9 @@
       <workItem from="1585337940895" duration="734000" />
       <workItem from="1585734780676" duration="26377000" />
       <workItem from="1585922374426" duration="1889000" />
-      <workItem from="1585944934773" duration="5056000" />
+      <workItem from="1585944934773" duration="5191000" />
+      <workItem from="1585986679121" duration="2018000" />
+      <workItem from="1586002367602" duration="6127000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1585337708147</created>
@@ -170,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585771769650</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Contact Form eklendi.">
+      <created>1585950023480</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1585950023480</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,29 +189,30 @@
     <MESSAGE value="Second Commit" />
     <MESSAGE value="Admin panel için CKEditör eklendi" />
     <MESSAGE value="Hakkımızda, iletişim ve referanslarımız sayfaları eklendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Hakkımızda, iletişim ve referanslarımız sayfaları eklendi." />
+    <MESSAGE value="Contact Form eklendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Contact Form eklendi." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Notifications" timestamp="1585338070165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1585338070165" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1585771767455">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1585950021702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585771767455" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585950021702" />
     <state x="461" y="162" key="SettingsEditor" timestamp="1585948581935">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585948581935" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585771775687">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1585950030090">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585771775687" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1585945000374">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585950030090" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586002433280">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585945000374" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586002433280" />
     <state x="127" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585743697302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
