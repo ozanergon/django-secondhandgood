@@ -2,25 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c63bcd-ef5f-43c6-a33b-28d1978fca0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/product/migrations/0006_auto_20200408_1314.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/Kitap_20180905233022_129111_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/books-521812297.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uploads/images/desktop-pc-19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/templates/products.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/10290216206386.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/uploads/images/iphone-11-64gb-beyaz-z.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myproject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/product/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myproject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -80,7 +80,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -113,6 +113,18 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -144,7 +156,10 @@
       <workItem from="1586002367602" duration="6365000" />
       <workItem from="1586207822236" duration="2440000" />
       <workItem from="1586251112897" duration="1775000" />
-      <workItem from="1586338534727" duration="8819000" />
+      <workItem from="1586338534727" duration="9062000" />
+      <workItem from="1586356644568" duration="877000" />
+      <workItem from="1586357628900" duration="2000" />
+      <workItem from="1586553605838" duration="3462000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1585337708147</created>
@@ -216,7 +231,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586014928542</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Alt kategori menü eklendi.">
+      <created>1586347967117</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586347967117</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,29 +251,30 @@
     <MESSAGE value="Hakkımızda, iletişim ve referanslarımız sayfaları eklendi." />
     <MESSAGE value="Contact Form eklendi." />
     <MESSAGE value="Slider dinamik hale getirildi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Slider dinamik hale getirildi." />
+    <MESSAGE value="Alt kategori menü eklendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Alt kategori menü eklendi." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Notifications" timestamp="1585338070165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1585338070165" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1586347818582">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1586347965128">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586347818582" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1585948581935">
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586347965128" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1586556013828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585948581935" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586014931228">
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586556013828" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1586347970933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586014931228" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586338561072">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586347970933" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586356650260">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586338561072" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586356650260" />
     <state x="127" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585743697302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

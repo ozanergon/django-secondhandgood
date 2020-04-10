@@ -1,0 +1,43 @@
+{% extends 'homebase.html' %}
+
+{% block title %} {{ categorydata.title }} Products {% endblock %}
+{% block keywords %} {{ categorydata.keywords }} {% endblock %}
+{% block description %} {{ categorydata.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+{% block sidebar %}
+    {% include "sidebar.html" %}
+{% endblock %}
+{% block content %}
+    <div class="span9">
+        <div class="well well-small">
+            <h3>{{ categorydata.title }} Ürünleri</h3>
+        <hr>
+            <div class="row-fluid">
+                <ul class="thumbnails">
+                    {% for rs in products %}
+                        <li class="span4">
+                            <div class="thumbnail">
+                                <a href="product_details.html" class="overlay"></a>
+                                <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+                                <a href="product_details.html"><img style="width:250px; height:250px;" src="{{ rs.image.url }}" alt=""></a>
+                                <div class="caption cntr">
+                                    <p>{{ rs.title }}</p>
+                                    <p><strong> ${{ rs.price }}</strong></p>
+                                    <h4><a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"> Add to cart </a></h4>
+                                    <div class="actionList">
+                                        <a class="pull-left" href="#">Add to Wish List </a>
+                                        <a class="pull-left" href="#"> Add to Compare </a>
+                                    </div>
+                                    <br class="clr">
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
