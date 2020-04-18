@@ -1,0 +1,28 @@
+{% extends 'homebase.html' %}
+
+{% block title %} İletişim {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block content %}
+    <table cellpadding="3" width="950">
+        <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        {% for rs in products %}
+            <tr>
+                <td><a href="/product/{{ rs.id }}/{{ rs.slug }}"> <img src="{{ rs.image.url }}" style="width: 100px; height: 100px;" alt=""></a> </td>
+                <td><h4 class="product-name"><a href="/product/{{ rs.id }}}/{{ rs.slug }}">{{ rs.title }}</a></h4></td>
+                <td><a href="/category/{{ rs.category_id }}/{{ rs.category.slug }}"> {{ rs.category }}</a> </td>
+                <td><h4>${{ rs.price }}</h4></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -71,8 +71,11 @@ Navigation Bar Section
                         <li class=""><a href="/referanslar">Referanslar</a></li>
                         <li class=""><a href="/iletisim">İletişim</a></li>
                     </ul>
-                    <form action="#" class="navbar-search pull-left">
-                        <input type="text" placeholder="Search" class="search-query span2">
+                    <form action="/search/" class="navbar-search pull-left" method="post">
+                        {% csrf_token %}
+                        <input name="query" class="search-query span2" type="text"  placeholder="Enter your keyword">
+                        <button class="icon-search"><i class="fa fa-search"></i> </button>
+                        </select>
                     </form>
                     <ul class="nav pull-right">
                         <li class="dropdown">

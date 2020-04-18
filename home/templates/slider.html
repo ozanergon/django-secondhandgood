@@ -4,10 +4,10 @@
     <div class="well np">
         <div id="myCarousel" class="carousel slide homCar">
             <div class="carousel-inner">
-                {{ count }}
+                
                 {% for rs in sliderdata %}
-                    {{ count.counter }}
-                    <div class="item {% if count == 1 %} active {% endif %}">
+                    
+                    <div class="item {% if count == 0 %} active {% endif %}">
                         <img style="width:100%" src="{{ rs.image.url }}"
                              alt="bootstrap ecommerce templates">
                         <div class="carousel-caption">

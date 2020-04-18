@@ -3,8 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from home.forms import SearchForm
 from home.models import Setting, ContactFormu, ContactFormMessage
-from product.models import Product, Category, Images
+from product.models import Product, Category, Images, Comment
 
 
 def index(request):
@@ -14,7 +15,7 @@ def index(request):
     dayproducts = Product.objects.all()[:4]
     lastproducts = Product.objects.all().order_by('-id')[:3]
     randomproducts = Product.objects.all().order_by('?')[:3]
-    count = 1
+    count = 7
     context = {'setting': setting,
                'category': category,
                'page': 'home',
@@ -71,8 +72,27 @@ def product_detail(request, id, slug):
     category = Category.objects.all()
     product = Product.objects.get(pk=id)
     images = Images.objects.filter(product_id=id)
+    comments = Comment.objects.filter(product_id=id, status='True')
     context = {'product': product,
                'category': category,
-               'images': images
+               'images': images,
+               'comments': comments,
                }
     return render(request, 'product_detail.html', context)
+
+
+def product_search(request):
+    if request.method == 'POST':  # Check form post
+        form = SearchForm(request.POST)  # Get form data
+        if form.is_valid():
+            category = Category.objects.all()
+            query = form.cleaned_data['query']  #formdan bilgi al
+            products = Product.objects.filter(title__icontains=query) #Select * from product where title like %query%
+            #return HttpResponse(products)
+            context = {'products': products,
+                       'category': category,
+                       }
+            return render(request, 'products_search.html', context)
+    return HttpResponseRedirect('/')
+
+
