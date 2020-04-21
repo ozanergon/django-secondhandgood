@@ -1,3 +1,5 @@
+import json
+
 from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
@@ -29,17 +31,20 @@ def index(request):
 
 def hakkimizda(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting, 'page': 'hakkimizda'}
+    category = Category.objects.all()
+    context = {'setting': setting, 'category': category, 'page': 'hakkimizda'}
     return render(request, 'hakkimizda.html', context)
 
 
 def referanslar(request):
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    category = Category.objects.all()
+    context = {'setting': setting, 'category': category}
     return render(request, 'referanslarimiz.html', context)
 
 
 def iletisim(request):
+    category = Category.objects.all()
     if request.method == 'POST':  # form post edildiyse
         form = ContactFormu(request.POST)
         if form.is_valid():
@@ -54,7 +59,7 @@ def iletisim(request):
             return HttpResponseRedirect('/iletisim')
     setting = Setting.objects.get(pk=1)
     form = ContactFormu()
-    context = {'setting': setting, 'form': form}
+    context = {'setting': setting, 'category': category, 'form': form}
     return render(request, 'iletisim.html', context)
 
 
@@ -67,6 +72,7 @@ def category_products(request, id, slug):
                'categorydata': categorydata
                }
     return render(request, 'products.html', context)
+
 
 def product_detail(request, id, slug):
     category = Category.objects.all()
@@ -86,9 +92,16 @@ def product_search(request):
         form = SearchForm(request.POST)  # Get form data
         if form.is_valid():
             category = Category.objects.all()
-            query = form.cleaned_data['query']  #formdan bilgi al
-            products = Product.objects.filter(title__icontains=query) #Select * from product where title like %query%
-            #return HttpResponse(products)
+
+            query = form.cleaned_data['query']  # Get form data
+            catid = form.cleaned_data['catid']  # Get form data
+
+            if catid == 0:
+                products = Product.objects.filter(title__icontains=query)  # Select * from product where title like %query%
+
+            else:
+                products = Product.objects.filter(title__icontains=query)
+            # return HttpResponse(products)
             context = {'products': products,
                        'category': category,
                        }
@@ -96,3 +109,17 @@ def product_search(request):
     return HttpResponseRedirect('/')
 
 
+def product_search_auto(request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        product = Product.objects.filter(title__icontains=q)
+        results = []
+        for rs in product:
+            product_json = {}
+            product_json = rs.title
+            results.append(product_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)

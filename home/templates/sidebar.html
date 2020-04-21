@@ -76,6 +76,7 @@
 <div id="sidebar" class="span3">
     <div class="well well-small">
         <ul id="menu-v">
+
             {% recursetree category %}
                 <li>
                     <a href="/category/{{ node.id }}/{{ node.slug }}" {% if not node.is_leaf_node %} class="arrow" {% endif %}>{{ node.title }}</a>
@@ -86,6 +87,7 @@
                     {% endif %}
                 </li>
             {% endrecursetree %}
+
             <li><a href="products.html"><span class="icon-chevron-right"></span>Fashion</a></li>
             <li><a href="products.html"><span class="icon-chevron-right"></span>Watches</a></li>
             <li><a href="products.html"><span class="icon-chevron-right"></span>Fine Jewelry</a></li>

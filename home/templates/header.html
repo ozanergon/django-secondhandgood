@@ -1,4 +1,20 @@
 {% load static %}
+{% load mptt_tags %}
+<script>
+        $(function() {
+            $("#query").autocomplete({
+                source: "/search_auto/",
+                select: function (event, ui) { //item selected
+                    AutoCompleteSelectHandler(event, ui)
+                },
+                minLength: 2,
+            });
+        });
+        function AutoCompleteSelectHandler(event, ui)
+        {
+            var selectedObj = ui.item;
+        }
+    </script>
 <!--
 	Upper Header Section
 -->
@@ -54,8 +70,10 @@ Lower Header Section
         </div>
     </header>
     <!--
-Navigation Bar Section
--->
+    Navigation Bar Section
+    -->
+
+
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -71,12 +89,30 @@ Navigation Bar Section
                         <li class=""><a href="/referanslar">Referanslar</a></li>
                         <li class=""><a href="/iletisim">İletişim</a></li>
                     </ul>
+
                     <form action="/search/" class="navbar-search pull-left" method="post">
                         {% csrf_token %}
-                        <input name="query" class="search-query span2" type="text"  placeholder="Enter your keyword">
-                        <button class="icon-search"><i class="fa fa-search"></i> </button>
+                        <input id ="query" name="query" class="search-query span2" type="text"  placeholder="Enter your keyword">
+
+
+
+                        <select name="catid" class="input search-input" style="width: 150px;">
+                            <option value="0">All Categories</option>
+                            {% recursetree category %}
+                                {% if node.is_leaf_node %}
+                                    <option value="{{ node.id }}">{{ node.title }}</option>
+                                {% endif %}
+                                {% if not node.is_leaf_node %}
+                                    <optgroup label="{{ node.title }}">
+                                        {{ children }}
+                                    </optgroup>
+                                {% endif %}
+                            {% endrecursetree %}
+
                         </select>
+                        <button class="icon-search"><i class="fa fa-search"></i> </button>
                     </form>
+
                     <ul class="nav pull-right">
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> Login <b class="caret"></b></a>
