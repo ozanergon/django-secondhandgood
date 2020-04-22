@@ -100,7 +100,7 @@ def product_search(request):
                 products = Product.objects.filter(title__icontains=query)  # Select * from product where title like %query%
 
             else:
-                products = Product.objects.filter(title__icontains=query)
+                products = Product.objects.filter(title__icontains=query, category_id=catid)
             # return HttpResponse(products)
             context = {'products': products,
                        'category': category,
