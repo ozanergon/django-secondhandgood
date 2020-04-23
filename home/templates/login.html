@@ -1,0 +1,52 @@
+{% extends 'homebase.html' %}
+
+{% block title %} Login {{ setting.company }} {% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block content %}
+
+    <div class="span12">
+        <h3 class="title">Login Formu</h3>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{message.tags}}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+
+        <div class="well">
+            <h5>ALREADY REGISTERED ?</h5>
+            <form action="" class="control-group" method="post">
+                {% csrf_token %}
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">Username</label>
+                    <div class="controls">
+                        <input class="span3"  name="username" type="text" placeholder="User Name">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">Password</label>
+                    <div class="controls">
+                        <input type="password" name="password" class="span3" placeholder="Password">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <button type="submit" class="defaultBtn">Sign in</button>
+                    </div>
+                </div>
+            </form>
+
+
+
+        </div>
+
+{% endblock %}

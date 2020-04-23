@@ -32,7 +32,9 @@ urlpatterns = [
     path('category/<int:id>/<slug:slug>/', views.category_products, name='category_products'),
     path('product/<int:id>/<slug:slug>/', views.product_detail, name='product_detail'),
     path('search/', views.product_search, name='product_search'),
-    path('search_auto/', views.product_search_auto, name="product_search_auto")
+    path('search_auto/', views.product_search_auto, name="product_search_auto"),
+    path('logout/', views.logout_view, name='logout_view'),
+    path('login/', views.login_view, name='login_view'),
 ]
 
 if settings.DEBUG:  # new
