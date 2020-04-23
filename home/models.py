@@ -1,9 +1,12 @@
+from django.contrib.auth.models import User
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 # Create your models here.
 
 from django.forms import ModelForm, TextInput, Textarea
+from django.utils.safestring import mark_safe
+
 
 class Setting(models.Model):
     STATUS = (
@@ -20,7 +23,7 @@ class Setting(models.Model):
     email = models.CharField(blank=True, max_length=50)
     smtpserver = models.CharField(blank=True, max_length=20)
     smtpemail = models.CharField(blank=True, max_length=20)
-    smtppassword = models.CharField(blank=True,  max_length=10)
+    smtppassword = models.CharField(blank=True, max_length=10)
     smtpport = models.CharField(blank=True, max_length=5)
     icon = models.ImageField(blank=True, upload_to='images/')
     facebook = models.CharField(blank=True, max_length=50)
@@ -35,6 +38,7 @@ class Setting(models.Model):
 
     def __str__(self):
         return self.title
+
 
 class ContactFormMessage(models.Model):
     STATUS = (
@@ -66,3 +70,29 @@ class ContactFormu(ModelForm):
             'subject': TextInput(attrs={'class': 'input', 'placeholder': 'Email Address'}),
             'message': Textarea(attrs={'class': 'input', 'placeholder': 'Your Message', 'rows': '5'}),
         }
+
+
+class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    phone = models.CharField(blank=True, max_length=20)
+    address = models.CharField(blank=True, max_length=150)
+    city = models.CharField(blank=True, max_length=20)
+    country = models.CharField(blank=True, max_length=20)
+    image = models.ImageField(blank=True, upload_to='images/users/')
+
+    def __str__(self):
+        return self.user.username
+
+    def user_name(self):
+        return self.user.first_name + ' ' + self.user.last_name + ' [' + self.user.username + '] '
+
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
+    image_tag.short_description = 'Image'
+
+
+class UserProfileForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['phone', 'address', 'city', 'country', 'image']
