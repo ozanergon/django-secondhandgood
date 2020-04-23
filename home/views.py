@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
-from home.forms import SearchForm
+from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage
 from product.models import Product, Category, Images, Comment
 
@@ -100,7 +100,6 @@ def product_search(request):
             if catid == 0:
                 products = Product.objects.filter(
                     title__icontains=query)  # Select * from product where title like %query%
-
             else:
                 products = Product.objects.filter(title__icontains=query, category_id=catid)
             # return HttpResponse(products)
@@ -134,17 +133,36 @@ def logout_view(request):
 
 def login_view(request):
     if request.method == 'POST':
-            username = request.POST['username']
-            password = request.POST['password']
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                # Redirect to a success page.
-                return HttpResponseRedirect('/')
-            else:
-                messages.error(request, "Login Hatası ! Kullanıcı adı yada şifre yanlışbbbb ")
-                return HttpResponseRedirect('/login')
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            # Redirect to a success page.
+            return HttpResponseRedirect('/')
+        else:
+            messages.error(request, "Login Hatası ! Kullanıcı adı yada şifre yanlışbbbb ")
+            return HttpResponseRedirect('/login')
     category = Category.objects.all()
     context = {'category': category,
                }
     return render(request, 'login.html', context)
+
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return HttpResponseRedirect('/')
+
+    form = SignUpForm()
+    category = Category.objects.all()
+    context = {'category': category,
+               'form': form,
+               }
+    return render(request, 'signup.html', context)

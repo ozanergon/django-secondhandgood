@@ -11,28 +11,31 @@
 {% block content %}
 
     <div class="span4">
-        <h3 class="title">İletişim Formu</h3>
+        <div class="well">
+            <h3 class="title">İletişim Formu</h3>
 
-        {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{message.tags}}" role="alert">
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{message.tags}}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
 
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="SEND FORM">
-        </form>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="SEND FORM">
+            </form>
+        </div>
     </div>
 
     <div class="span8">
-        <div class="section-title">
-            <h3 class="title">İletişim Bilgilerimiz</h3>
+        <div class="well">
+            <div class="section-title">
+                <h3 class="title">İletişim Bilgilerimiz</h3>
+            </div>
+            {{ setting.contact|safe }}
         </div>
-        {{ setting.contact|safe }}
     </div>
-
 {% endblock %}
