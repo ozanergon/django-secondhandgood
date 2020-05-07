@@ -76,8 +76,9 @@
                         <h4>{{ product.amount }} Adet Var</h4>
                         <p>
                             {{ product.description }}
-                        <p>
-                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Add to cart</button>
+                        <a>
+                        <br>
+                        <a href="/order/orderproduct/{{ product.id }}" <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Satın Al</button></a>
                     </form>
                 </div>
             </div>
@@ -201,7 +202,7 @@
                                     <input type="checkbox">  Adds product to compair
                                 </label><br>
                                 <div class="btn-group">
-                                    <a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+                                    <a href="/order/orderproduct" class="defaultBtn"><span class=" icon-shopping-cart"></span> Satın Al</a>
                                     <a href="product_details.html" class="shopBtn">VIEW</a>
                                 </div>
                             </form>
@@ -227,7 +228,7 @@
                                     <input type="checkbox">  Adds product to compair
                                 </label><br>
                                 <div class="btn-group">
-                                    <a href="product_details.html" class="defaultBtn"><span class=" icon-shopping-cart"></span> Add to cart</a>
+                                    <a href="/order/orderproduct" class="defaultBtn"><span class=" icon-shopping-cart"></span> Satın Al</a>
                                     <a href="product_details.html" class="shopBtn">VIEW</a>
                                 </div>
                             </form>

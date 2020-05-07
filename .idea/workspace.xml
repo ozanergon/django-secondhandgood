@@ -2,19 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9c63bcd-ef5f-43c6-a33b-28d1978fca0f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_panel.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/templates/user_profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/user/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/templates/Order_Completed.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/templates/Order_Form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/product_detail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myproject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myproject/urls.py" afterDir="false" />
     </list>
@@ -79,7 +80,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/user/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/order" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -90,6 +91,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Django\myproject\order" />
       <recent name="C:\Django\myproject\user\templates" />
       <recent name="C:\Django\myproject\user" />
       <recent name="C:\Django\myproject\home\templates" />
@@ -206,7 +208,10 @@
       <workItem from="1587490398233" duration="11392000" />
       <workItem from="1587539404177" duration="7831000" />
       <workItem from="1587598873536" duration="3048000" />
-      <workItem from="1587625063167" duration="15449000" />
+      <workItem from="1587625063167" duration="16500000" />
+      <workItem from="1588601236267" duration="1521000" />
+      <workItem from="1588687853194" duration="763000" />
+      <workItem from="1588848910003" duration="23966000" />
     </task>
     <task id="LOCAL-00001" summary="Second Commit">
       <created>1585337708147</created>
@@ -355,7 +360,14 @@
       <option name="project" value="LOCAL" />
       <updated>1587634048748</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Üye paneli ve profil bilgileri yapıldı">
+      <created>1587643158521</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587643158521</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +390,8 @@
     <MESSAGE value="Login ve logout işlemleri yapıldı." />
     <MESSAGE value="Üye kayıt formu yapıldı." />
     <MESSAGE value="Üye profile ek bilgiler ve resim ekleme yapıldı." />
-    <option name="LAST_COMMIT_MESSAGE" value="Üye profile ek bilgiler ve resim ekleme yapıldı." />
+    <MESSAGE value="Üye paneli ve profil bilgileri yapıldı" />
+    <option name="LAST_COMMIT_MESSAGE" value="Üye paneli ve profil bilgileri yapıldı" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Notifications" timestamp="1585338070165">
@@ -389,10 +402,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587239854927" />
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1587634047255">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1587643156794">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587634047255" />
+    <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587643156794" />
     <state x="585" y="114" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586563871930" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1587489150607">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -426,16 +439,16 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1586563934592" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587634049964">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1587643160671">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587634049964" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587643160671" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1586563874725" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1587625389715">
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588848981469">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1587625389715" />
-    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586356650260" />
+    <state x="661" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588848981469" />
     <state x="127" y="138" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1585743697302">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -444,5 +457,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="769" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585738861220" />
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1588863000774">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588863000774" />
   </component>
 </project>
