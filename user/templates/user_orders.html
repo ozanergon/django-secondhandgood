@@ -1,0 +1,51 @@
+{% extends 'homebase.html' %}
+
+{% block title %} Order List{% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block content %}
+
+    <div class="span3">
+        {% include "user_panel.html" %}
+    </div>
+
+    <div class="span9">
+        <div class="well">
+            <div class="section-title">
+                <h3 class="title">User Order List</h3>
+            </div>
+
+            <hr class="soften"/>
+
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th class="text-left">Id</th>
+                    <th class="text-left">First Name</th>
+                    <th class="text-left">Last Name</th>
+                    <th class="text-left">Product name</th>
+                    <th class="text-left">Price</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">Date</th>
+                    <th class="text-left">Detail</th>
+                </tr>
+                {% for rs in orders %}
+                    <tr>
+                        <td class="text-left">{{ rs.id }}</td>
+                        <td class="text-left">{{ rs.user.first_name }}</td>
+                        <td class="text-left">{{ rs.user.last_name }}</td>
+                        <td class="text-left">{{ rs.product.title }}</td>
+                        <td class="text-left">{{ rs.price }}</td>
+                        <td class="text-left">{{ rs.status }}</td>
+                        <td class="text-left">{{ rs.create_at }}</td>
+                        <td class="text-left"><a class="btn btn-primary" href="/user/orderdetail/{{ rs.id }}">Detay</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

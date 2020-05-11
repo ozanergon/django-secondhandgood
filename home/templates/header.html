@@ -54,20 +54,20 @@ Lower Header Section
             </div>
             <div class="span4">
 
-                    <h1 class="dotmark">
-                        <i class="icon-cut"></i>
+                <h1 class="dotmark">
+                    <i class="icon-cut"></i>
 
-                        {% if messages %}
-                            {% for message in messages %}
-                                <div style="color: #d43d3a; font-size: medium">
-                                    {{ message|safe }}
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            Twitter Bootstrap shopping cart HTML template is available @ $14
-                        {% endif %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div style="color: #d43d3a; font-size: medium">
+                                {{ message|safe }}
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        Twitter Bootstrap shopping cart HTML template is available @ $14
+                    {% endif %}
 
-                    </h1>
+                </h1>
 
             </div>
             <div class="span4 alignR">
@@ -128,13 +128,19 @@ Lower Header Section
                             {% if user.id is not None %}
                                 <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> {{ user.first_name}} {{ user.last_name }}<b class="caret"></b></a>
                             {% else %}
-                                <a href="/login">Login / </a> <a  href="/signup">Sign Up</a>
+
+
+                                    <a href="/login">Login / <a href="/signup">Sign Up</a> </a>
+
+
                             {% endif %}
 
                             <ul class="dropdown-menu">
                                 <li><a href="/user">My Account</a></li>
-                                <li><a href="#">My Orders</a></li>
-                                <li><a href="#">My Comments</a></li>
+                                <li><a href="/user/orders">My Orders</a></li>
+                                <li><a href="/user/comments">My Comments</a></li>
+                                <li><a href="/user/favorits">My Favorites</a></li>
+                                <li><a href="/user/products">My Products</a></li>
                                 <li><a href="/logout">Logout</a></li>
                             </ul>
                         </li>

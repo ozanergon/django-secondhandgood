@@ -1,0 +1,88 @@
+{% extends 'homebase.html' %}
+
+{% block title %} Order Detail{% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block content %}
+
+    <div class="span3">
+        {% include "user_panel.html" %}
+    </div>
+
+    <div class="span9">
+        <div class="well">
+            <div class="section-title">
+                <h3 class="title">User Shipping Information</h3>
+            </div>
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th>Name Surname</th>
+                    <td>{{ order.user.first_name }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ order.user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>{{ profile.phone }}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ profile.address }}</td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td>{{ profile.city }} </td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>{{ profile.country }}</td>
+                </tr>
+                <tr>
+                    <th>Country</th>
+                    <td>{{ order.status }}</td>
+                </tr>
+                <tr>
+                    <th>Date</th>
+                    <td>{{ order.create_at }}</td>
+                </tr>
+                <tr>
+                    <th>Shipping Inf</th>
+                    <td>{{ profile.adminnote }}</td>
+                </tr>
+            </table>
+
+
+            <hr class="soften"/>
+
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th class="text-left">Image</th>
+                    <th class="text-left">Product name</th>
+                    <th class="text-left">Price</th>
+                    <th class="text-left">Quantity</th>
+                    <th class="text-left">Amount</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">Date</th>
+                </tr>
+                {% for rs in orderitems %}
+                    <tr>
+                        <td class="text-left"> <a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><img style="height: 100px" src="{{ rs.product.image.url }}"> </a> </td>
+                        <td class="text-left">{{ rs.product.title }}</td>
+                        <td class="text-left">{{ rs.price }}</td>
+                        <td class="text-left">{{ rs.quantity }}</td>
+                        <td class="text-left">{{ rs.amount }}</td>
+                        <td class="text-left">{{ rs.status }}</td>
+                        <td class="text-left">{{ rs.create_at }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

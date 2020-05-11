@@ -1,25 +1,30 @@
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
 from home.models import UserProfile
+from order.models import Order, OrderProduct
 from product.models import Category
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
+@login_required(login_url='/login')  # Check login
 def index(request):
     category = Category.objects.all()
     current_user = request.user  # Access User Session information
-    profile = UserProfile.objects.get(pk=current_user.id)
+    print("ID:" + str(current_user.id))
+    profile = UserProfile.objects.get(user_id=current_user.id)
     context = {'category': category,
                'profile': profile,
                }
     return render(request, 'user_profile.html', context)
 
 
+@login_required(login_url='/login')  # Check login
 def user_update(request):
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)  # request.user is user data
@@ -40,6 +45,8 @@ def user_update(request):
         }
         return render(request, 'user_update.html', context)
 
+
+@login_required(login_url='/login')  # Check login
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
@@ -49,7 +56,7 @@ def change_password(request):
             messages.success(request, 'Your password was successfully updated')
             return HttpResponseRedirect('/user')
         else:
-            messages.error(request, 'Please correct the error below.<br>'+ str(form.errors))
+            messages.error(request, 'Please correct the error below.<br>' + str(form.errors))
             return HttpResponseRedirect('/user/password')
     else:
         category = Category.objects.all()
@@ -59,3 +66,29 @@ def change_password(request):
         })
 
 
+@login_required(login_url='/login')  # Check login
+def orders(request):
+    category = Category.objects.all()
+    current_user = request.user
+    orders = OrderProduct.objects.filter(user_id=current_user.id)
+    context = {
+        'category': category,
+        'orders': orders,
+    }
+    return render(request, 'user_orders.html', context)
+
+
+@login_required(login_url='/login')  # Check login
+def orderdetail(request, id):
+    category = Category.objects.all()
+    current_user = request.user
+    order = OrderProduct.objects.get(user_id=current_user.id, id=id)
+    orderitems = OrderProduct.objects.filter(user_id=current_user.id)
+    profile = UserProfile.objects.get(user_id=current_user.id)
+    context = {
+        'category': category,
+        'order': order,
+        'orderitems': orderitems,
+        'profile': profile,
+    }
+    return render(request, 'user_order_detail.html', context)
