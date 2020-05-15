@@ -1,0 +1,54 @@
+{% extends 'homebase.html' %}
+
+{% block title %} Order List{% endblock %}
+{% block keywords %} {{ setting.keywords }} {% endblock %}
+{% block description %} {{ setting.description }}{% endblock %}
+
+{% block head %}
+    <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+{% endblock %}
+
+{% block content %}
+
+    <div class="span3">
+        {% include "user_panel.html" %}
+    </div>
+
+    <div class="span9">
+        <div class="well">
+            <div class="section-title">
+                <h3 class="title">User Product List</h3>
+                <a class="btn btn-primary" href="/user/addproduct">Add Product</a>
+            </div>
+
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <th class="text-left">Id</th>
+                    <th class="text-left">Product</th>
+                    <th class="text-left">Price</th>
+                    <th class="text-left">Image</th>
+                    <th class="text-left">Status</th>
+                    <th class="text-left">Description</th>
+                    <th class="text-left">Date</th>
+                </tr>
+                {% for rs in products %}
+                    <tr>
+                        <td class="text-left">{{ rs.id }}</td>
+                        <td class="text-left">{{ rs.title }}</td>
+                        <td class="text-left">{{ rs.price }}</td>
+                        <td class="text-left"> <img style="width: 150px; height: 80px;" src="{{ rs.image.url }}"></td>
+                        <td class="text-left">{{ rs.status }}</td>
+                        <td class="text-left">{{ rs.description }}</td>
+                        <td class="text-left">{{ rs.created_at }}</td>
+                        <td class="text-left">
+                            <a class="btn btn-primary" href="/user/productedit/{{ rs.id }}">Edit</a>
+                        </td>
+                        <td class="text-left">
+                            <a onclick="return confirm('Will be Delete! Are you sure?')" class="btn btn-primary" href="/user/productdelete/{{ rs.id }}">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

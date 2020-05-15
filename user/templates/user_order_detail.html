@@ -45,7 +45,7 @@
                     <td>{{ profile.country }}</td>
                 </tr>
                 <tr>
-                    <th>Country</th>
+                    <th>Status</th>
                     <td>{{ order.status }}</td>
                 </tr>
                 <tr>
@@ -71,17 +71,17 @@
                     <th class="text-left">Status</th>
                     <th class="text-left">Date</th>
                 </tr>
-                {% for rs in orderitems %}
+
                     <tr>
-                        <td class="text-left"> <a href="/product/{{ rs.product_id }}/{{ rs.product.slug }}"><img style="height: 100px" src="{{ rs.product.image.url }}"> </a> </td>
-                        <td class="text-left">{{ rs.product.title }}</td>
-                        <td class="text-left">{{ rs.price }}</td>
-                        <td class="text-left">{{ rs.quantity }}</td>
-                        <td class="text-left">{{ rs.amount }}</td>
-                        <td class="text-left">{{ rs.status }}</td>
-                        <td class="text-left">{{ rs.create_at }}</td>
+                        <td class="text-left"> <a href="/product/{{ order.product_id }}/{{ order.product.slug }}"><img style="height: 100px" src="{{ order.product.image.url }}"> </a> </td>
+                        <td class="text-left">{{ order.product.title }}</td>
+                        <td class="text-left">{{ order.price }}</td>
+                        <td class="text-left">{{ order.quantity }}</td>
+                        <td class="text-left">{{ order.amount }}</td>
+                        <td class="text-left">{{ order.status }}</td>
+                        <td class="text-left">{{ order.create_at }}</td>
                     </tr>
-                {% endfor %}
+
             </table>
         </div>
     </div>

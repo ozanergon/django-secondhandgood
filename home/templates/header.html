@@ -1,7 +1,7 @@
 {% load static %}
 {% load mptt_tags %}
 <script>
-    $(function() {
+    $(function () {
         $("#query").autocomplete({
             source: "/search_auto/",
             select: function (event, ui) { //item selected
@@ -10,8 +10,8 @@
             minLength: 2,
         });
     });
-    function AutoCompleteSelectHandler(event, ui)
-    {
+
+    function AutoCompleteSelectHandler(event, ui) {
         var selectedObj = ui.item;
     }
 </script>
@@ -28,21 +28,21 @@
                     <a href="#"><span class="icon-youtube"></span></a>
                     <a href="#"><span class="icon-tumblr"></span></a>
                 </div>
-                <a class="active" href="index.html"> <span class="icon-home"></span> Home</a>
-                <a href="#"><span class="icon-user"></span> My Account</a>
-                <a href="register.html"><span class="icon-edit"></span> Free Register </a>
-                <a href="contact.html"><span class="icon-envelope"></span> Contact us</a>
-                <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span class="badge badge-warning"> $448.42</span></a>
+                <a class="active" href="/"> <span class="icon-home"></span> Home</a>
+                <a href="/user"><span class="icon-user"></span> My Account</a>
+                <a href="/signup"><span class="icon-edit"></span> Free Register </a>
+                <a href="/iletisim"><span class="icon-envelope"></span> Contact us</a>
+                <a href="cart.html"><span class="icon-shopping-cart"></span> 2 Item(s) - <span
+                        class="badge badge-warning"> $448.42</span></a>
             </div>
         </div>
     </div>
 </div>
-
 <!--
 Lower Header Section
 -->
 <div class="container">
-    <div id="gototop"> </div>
+    <div id="gototop"></div>
     <header id="header">
         <div class="row">
             <div class="span4">
@@ -53,7 +53,6 @@ Lower Header Section
                 </h1>
             </div>
             <div class="span4">
-
                 <h1 class="dotmark">
                     <i class="icon-cut"></i>
 
@@ -66,12 +65,10 @@ Lower Header Section
                     {% else %}
                         Twitter Bootstrap shopping cart HTML template is available @ $14
                     {% endif %}
-
                 </h1>
-
             </div>
             <div class="span4 alignR">
-                <p><br> <strong> Support (24/7) :  0800 1234 678 </strong><br><br></p>
+                <p><br> <strong> Support (24/7) : 0800 1234 678 </strong><br><br></p>
                 <span class="btn btn-mini">[ 2 ] <span class="icon-shopping-cart"></span></span>
                 <span class="btn btn-warning btn-mini">$</span>
                 <span class="btn btn-mini">&pound;</span>
@@ -82,8 +79,6 @@ Lower Header Section
     <!--
     Navigation Bar Section
     -->
-
-
     <div class="navbar">
         <div class="navbar-inner">
             <div class="container">
@@ -99,13 +94,10 @@ Lower Header Section
                         <li class=""><a href="/referanslar">Referanslar</a></li>
                         <li class=""><a href="/iletisim">İletişim</a></li>
                     </ul>
-
                     <form action="/search/" class="navbar-search pull-left" method="post">
                         {% csrf_token %}
-                        <input id ="query" name="query" class="search-query span2" type="text"  placeholder="Enter your keyword">
-
-
-
+                        <input id="query" name="query" class="search-query span2" type="text"
+                               placeholder="Enter your keyword">
                         <select name="catid" class="input search-input" style="width: 150px;">
                             <option value="0">All Categories</option>
                             {% recursetree category %}
@@ -120,21 +112,18 @@ Lower Header Section
                             {% endrecursetree %}
 
                         </select>
-                        <button class="icon-search"><i class="fa fa-search"></i> </button>
+                        <button class="icon-search"><i class="fa fa-search"></i></button>
                     </form>
 
                     <ul class="nav pull-left">
                         <li class="dropdown">
                             {% if user.id is not None %}
-                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span class="icon-lock"></span> {{ user.first_name}} {{ user.last_name }}<b class="caret"></b></a>
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><span
+                                        class="icon-lock"></span> {{ user.first_name }} {{ user.last_name }}<b
+                                        class="caret"></b></a>
                             {% else %}
-
-
-                                    <a href="/login">Login / <a href="/signup">Sign Up</a> </a>
-
-
+                                <a href="/login">Login / <a href="/signup">Sign Up</a> </a>
                             {% endif %}
-
                             <ul class="dropdown-menu">
                                 <li><a href="/user">My Account</a></li>
                                 <li><a href="/user/orders">My Orders</a></li>

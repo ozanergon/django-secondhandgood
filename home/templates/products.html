@@ -20,9 +20,9 @@
                     {% for rs in products %}
                         <li class="span4">
                             <div class="thumbnail">
-                                <a href="product_details.html" class="overlay"></a>
+                                <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="overlay"></a>
                                 <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
-                                <a href="product_details.html"><img style="width:250px; height:250px;" src="{{ rs.image.url }}" alt=""></a>
+                                <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="width:250px; height:250px;" src="{{ rs.image.url }}" alt=""></a>
                                 <div class="caption cntr">
                                     <p>{{ rs.title }}</p>
                                     <p><strong> ${{ rs.price }}</strong></p>

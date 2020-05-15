@@ -6,9 +6,11 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 # Create your views here.
+from django.utils.safestring import mark_safe
+
 from home.models import UserProfile
 from order.models import Order, OrderProduct
-from product.models import Category, Comment
+from product.models import Category, Comment, Product, ProductForm
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
@@ -16,7 +18,6 @@ from user.forms import UserUpdateForm, ProfileUpdateForm
 def index(request):
     category = Category.objects.all()
     current_user = request.user  # Access User Session information
-    print("ID:" + str(current_user.id))
     profile = UserProfile.objects.get(user_id=current_user.id)
     context = {'category': category,
                'profile': profile,
@@ -112,3 +113,78 @@ def deletecomment(request, id):
     Comment.objects.filter(id=id, user_id=current_user.id).delete()
     messages.success(request, 'Comment delete..')
     return HttpResponseRedirect('/user/comments')
+
+
+@login_required(login_url='/login')  # Check login
+def products(request):
+    category = Category.objects.all()
+    current_user = request.user
+    products = Product.objects.filter(user_id=current_user.id, status='True')
+    context = {
+        'category': category,
+        'products': products,
+    }
+    return render(request, 'user_products.html', context)
+
+
+@login_required(login_url='/login')  # Check login
+def addproduct(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            current_user = request.user
+            data = Product()  # model ile bağlantı kur
+            data.user_id = current_user.id
+            data.category = form.cleaned_data['category']
+            data.title = form.cleaned_data['title']
+            data.keywords = form.cleaned_data['keywords']
+            data.description = form.cleaned_data['description']
+            data.price = form.cleaned_data['price']
+            data.image = form.cleaned_data['image']
+            data.detail = form.cleaned_data['detail']
+            data.amount = form.cleaned_data['amount']
+            data.status = 'False'
+            data.save()  # veritabanına kaydet
+            messages.success(request, 'Your Content Insterted Successfuly')
+            return HttpResponseRedirect('/user/products')
+        else:
+            messages.success(request, 'Content Form Error:' + str(form.errors))
+            return HttpResponseRedirect('/user/addproduct')
+    else:
+        category = Category.objects.all()
+        form = ProductForm()
+        context = {
+            'category': category,
+            'form': form,
+        }
+        return render(request, 'user_addproduct.html', context)
+
+
+@login_required(login_url='/login')  # Check login
+def productedit(request, id):
+    product = Product.objects.get(id=id)
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your Product Updated Successfuly')
+            return HttpResponseRedirect('/user/products')
+        else:
+            messages.success(request, 'Product Form Error: ' + str(form.errors))
+            return HttpResponseRedirect('/user/addproduct/' + str(id))
+    else:
+        category = Category.objects.all()
+        form = ProductForm(instance=product)
+        context = {
+            'category': category,
+            'form': form,
+        }
+        return render(request, 'user_addproduct.html', context)
+
+
+@login_required(login_url='/login')  # Check login
+def productdelete(request, id):
+    current_user = request.user
+    Product.objects.filter(id=id, user_id=current_user.id).delete()
+    messages.success(request, 'Product deleted...')
+    return HttpResponseRedirect('/user/products')

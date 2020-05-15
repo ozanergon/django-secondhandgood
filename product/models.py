@@ -1,8 +1,9 @@
+from ckeditor.widgets import CKEditorWidget
 from django.contrib.auth.models import User
 from django.db import models
 
 # Create your models here.
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput, Select, FileInput, NumberInput, MultiWidget
 from django.urls import reverse
 from django.utils.safestring import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
@@ -38,6 +39,7 @@ class Category(MPTTModel):
 
     def image_tag(self):
         return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
     image_tag.short_description = 'Image'
 
     def get_absolute_url(self):
@@ -49,6 +51,7 @@ class Product(models.Model):
         ('True', 'Evet'),
         ('False', 'Hayır'),
     )
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)  # relation with Category table
     title = models.CharField(max_length=150)
     keywords = models.CharField(blank=True, max_length=255)
@@ -72,6 +75,24 @@ class Product(models.Model):
         return reverse('product_detail', kwargs={'slug': self.slug})
 
     image_tag.short_description = 'Image'
+
+
+class ProductForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ['category', 'title', 'keywords', 'description', 'image', 'price', 'amount', 'detail', 'slug']
+        widgets = {
+            'category': Select(attrs={'class': 'input', 'placeholder': 'amount'}, choices={Category.objects.all()}),
+            'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
+            'keywords': TextInput(attrs={'class': 'input', 'placeholder': 'keywords'}),
+            'description': TextInput(attrs={'class': 'input', 'placeholder': 'description'}),
+            'price': NumberInput(attrs={'class': 'input', 'placeholder': 'price'}),
+            'image': FileInput(attrs={'class': 'input', 'placeholder': 'image', }),
+            'detail': CKEditorWidget(),  # Ckeditor input
+        }
+
+        def get_absolute_url(self):
+            return reverse('addproduct', kwargs={'slug': self.slug})
 
 
 class Images(models.Model):

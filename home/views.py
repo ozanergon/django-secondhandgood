@@ -6,6 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 # Create your views here.
+from pip._internal import req
+
 from home.forms import SearchForm, SignUpForm
 from home.models import Setting, ContactFormu, ContactFormMessage, UserProfile
 from product.models import Product, Category, Images, Comment
@@ -141,7 +143,7 @@ def login_view(request):
             # Redirect to a success page.
             return HttpResponseRedirect('/')
         else:
-            messages.error(request, "Login Hatası ! Kullanıcı adı yada şifre yanlışbbbb ")
+            messages.error(request, "Login Hatası ! Kullanıcı adı yada şifre yanlış")
             return HttpResponseRedirect('/login')
     category = Category.objects.all()
     context = {'category': category,
@@ -150,7 +152,6 @@ def login_view(request):
 
 
 def signup_view(request):
-    a = UserProfile
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -158,13 +159,13 @@ def signup_view(request):
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password1')
             user = authenticate(request, username=username, password=password)
-            profil = UserProfile()
-            profil.user = user
-            profil.image = "images/a.jpg"
-            profil.phone = a.phone
-            profil.address = a.address
-            profil.save()
             login(request, user)
+            current_user = request.user
+            data = UserProfile()
+            data.user_id = current_user.id
+            data.image = 'images/users/user.png'
+            data.save()
+            messages.success(request, "Hoş geldiniz... Sitemize başarılı bir şekilde üye oldunuz. İyi alışverişler dileriz.")
             return HttpResponseRedirect('/')
 
     form = SignUpForm()

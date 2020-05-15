@@ -45,7 +45,7 @@ New Products
                         <div class="caption cntr">
                             <p>{{ rs.title }}</p>
                             <p><strong> ${{ rs.price }}</strong></p>
-                            <h4><a class="shopBtn" href="/addtocard/{{ rs.id }}" title="add to cart"> Add to cart </a></h4>
+                            <h4><a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"> Add to cart </a></h4>
                             <br class="clr">
                         </div>
                     </div>
@@ -67,15 +67,15 @@ New Products
                 {% for rs in randomproducts %}
                 <li class="span4">
                     <div class="thumbnail">
-                        <a class="zoomTool" href="/addtocard/{{ rs.id }}" title="add to cart"><span
+                        <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
                                 class="icon-search"></span> QUICK VIEW</a>
                         <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="height: 300px;" src="{{ rs.image.url}}" alt=""></a>
                         <div class="caption">
                             <h5>{{ rs.title }}</h5>
                             <h4>
-                                <a class="defaultBtn" href="product_detail.html" title="Click to view"><span
+                                <a class="defaultBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="Click to view"><span
                                         class="icon-zoom-in"></span></a>
-                                <a class="shopBtn" href="/addtocard/{{ rs.id }}" title="add to cart"><span class="icon-plus"></span></a>
+                                <a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span class="icon-plus"></span></a>
                                 <span class="pull-right">${{ rs.price }}</span>
                             </h4>
                         </div>
