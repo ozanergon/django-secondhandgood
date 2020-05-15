@@ -117,44 +117,21 @@
     <br>
     <br>
     <ul class="nav nav-list promowrapper">
+        <h2>Daily Products</h2>
+        {% for rs in dayproducts %}
         <li>
             <div class="thumbnail">
-                <a class="zoomTool" href="product_details.html" title="add to cart"><span
+                <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
                         class="icon-search"></span> QUICK VIEW</a>
-                <img src="{% static 'assets/img/bootstrap-ecommerce-templates.png' %}"
+                <img src="{{ rs.image.url}}"
                      alt="bootstrap ecommerce templates">
                 <div class="caption">
-                    <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                            class="pull-right">$22.00</span>
+                    <h4><a class="defaultBtn" href="/product/{{ rs.id }}/{{ rs.slug }}">VIEW</a> <span
+                            class="pull-right">${{ rs.price }}</span>
                     </h4>
                 </div>
             </div>
         </li>
-        <li style="border:0"> &nbsp;</li>
-        <li>
-            <div class="thumbnail">
-                <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                        class="icon-search"></span> QUICK VIEW</a>
-                <img src="{% static 'assets/img/shopping-cart-template.png' %}" alt="shopping cart template">
-                <div class="caption">
-                    <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                            class="pull-right">$22.00</span>
-                    </h4>
-                </div>
-            </div>
-        </li>
-        <li style="border:0"> &nbsp;</li>
-        <li>
-            <div class="thumbnail">
-                <a class="zoomTool" href="product_details.html" title="add to cart"><span
-                        class="icon-search"></span> QUICK VIEW</a>
-                <img src="{% static 'assets/img/bootstrap-template.png' %}" alt="bootstrap template">
-                <div class="caption">
-                    <h4><a class="defaultBtn" href="product_details.html">VIEW</a> <span
-                            class="pull-right">$22.00</span>
-                    </h4>
-                </div>
-            </div>
-        </li>
+        {% endfor %}
     </ul>
 </div>
