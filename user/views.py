@@ -10,7 +10,7 @@ from django.utils.safestring import mark_safe
 
 from home.models import UserProfile
 from order.models import Order, OrderProduct
-from product.models import Category, Comment, Product, ProductForm
+from product.models import Category, Comment, Product, ProductForm, ProductImageForm, Images
 from user.forms import UserUpdateForm, ProfileUpdateForm
 
 
@@ -189,3 +189,30 @@ def productdelete(request, id):
     Product.objects.filter(id=id, user_id=current_user.id).delete()
     messages.success(request, 'Product deleted...')
     return HttpResponseRedirect('/user/products')
+
+
+def productaddimage(request, id):
+    if request.method == 'POST':
+        lasturl = request.META.get('HTTP_REFERER')
+        form = ProductImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = Images()
+            data.title = form.cleaned_data['title']
+            data.product_id = id
+            data.image = form.cleaned_data['image']
+            data.save()
+            messages.success(request, 'Your image has been successfuly uploaded')
+            return HttpResponseRedirect(lasturl)
+        else:
+            messages.warning(request, 'Form Error: ' + str(form.errors))
+            return HttpResponseRedirect(lasturl)
+    else:
+        product = Product.objects.get(id=id)
+        images = Images.objects.filter(product_id=id)
+        form = ProductImageForm()
+        context = {
+            'product': product,
+            'images': images,
+            'form': form,
+        }
+        return render(request, 'product_gallery.html', context)

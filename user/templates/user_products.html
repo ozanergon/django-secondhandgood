@@ -6,6 +6,7 @@
 
 {% block head %}
     <link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url }}' />
+    {% load static %}
 {% endblock %}
 
 {% block content %}
@@ -23,21 +24,23 @@
 
             <table class="table table-bordered table-condensed">
                 <tr>
-                    <th class="text-left">Id</th>
                     <th class="text-left">Product</th>
                     <th class="text-left">Price</th>
                     <th class="text-left">Image</th>
-                    <th class="text-left">Status</th>
+                    <th class="text-left">Gallery</th>
                     <th class="text-left">Description</th>
                     <th class="text-left">Date</th>
                 </tr>
                 {% for rs in products %}
                     <tr>
-                        <td class="text-left">{{ rs.id }}</td>
                         <td class="text-left">{{ rs.title }}</td>
                         <td class="text-left">{{ rs.price }}</td>
-                        <td class="text-left"> <img style="width: 150px; height: 80px;" src="{{ rs.image.url }}"></td>
-                        <td class="text-left">{{ rs.status }}</td>
+                        <td class="text-left"> <img style="width: 150px; height: 50px;" src="{{ rs.image.url }}"></td>
+                        <td class="text-left">
+                            <a href="javascript:;" onclick="window.open('/user/productaddimage/{{ rs.id }}', 'galley', 'height=600, width=800, top=50, left=150')">
+                                <img src="{% static '' %}assets/img/gallery.png " style="height: 50px;">
+                            </a>
+                        </td>
                         <td class="text-left">{{ rs.description }}</td>
                         <td class="text-left">{{ rs.created_at }}</td>
                         <td class="text-left">

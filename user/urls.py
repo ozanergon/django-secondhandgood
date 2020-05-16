@@ -15,6 +15,7 @@ urlpatterns = [
     path('addproduct/', views.addproduct, name='addproduct'),
     path('productedit/<int:id>', views.productedit, name='productedit'),
     path('productdelete/<int:id>', views.productdelete, name='productdelete'),
+    path('productaddimage/<int:id>', views.productaddimage, name='productaddimage'),
     #path('addcomment/<int:id>', views.addcomment, name='addcomment')
     # ex: /polls/5/
     #path('<int:question_id>/', views.detail, name='detail'),
