@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from django.utils.safestring import mark_safe
 
-from home.models import UserProfile
+from home.models import UserProfile, Setting
 from order.models import Order, OrderProduct
 from product.models import Category, Comment, Product, ProductForm, ProductImageForm, Images
 from user.forms import UserUpdateForm, ProfileUpdateForm
@@ -16,17 +16,21 @@ from user.forms import UserUpdateForm, ProfileUpdateForm
 
 @login_required(login_url='/login')  # Check login
 def index(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user  # Access User Session information
     profile = UserProfile.objects.get(user_id=current_user.id)
     context = {'category': category,
                'profile': profile,
+               'setting': setting,
+
                }
     return render(request, 'user_profile.html', context)
 
 
 @login_required(login_url='/login')  # Check login
 def user_update(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)  # request.user is user data
         profile_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.userprofile)
@@ -42,13 +46,15 @@ def user_update(request):
         context = {
             'category': category,
             'user_form': user_form,
-            'profile_form': profile_form
+            'profile_form': profile_form,
+            'setting': setting,
         }
         return render(request, 'user_update.html', context)
 
 
 @login_required(login_url='/login')  # Check login
 def change_password(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -62,25 +68,31 @@ def change_password(request):
     else:
         category = Category.objects.all()
         form = PasswordChangeForm(request.user)
-        return render(request, 'change_password.html', {
-            'form': form, 'category': category
+        return render(request, 'change_password.html',
+                      {
+                          'form': form,
+                          'category': category,
+                          'setting': setting,
         })
 
 
 @login_required(login_url='/login')  # Check login
 def orders(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     orders = OrderProduct.objects.filter(user_id=current_user.id)
     context = {
         'category': category,
         'orders': orders,
+        'setting': setting,
     }
     return render(request, 'user_orders.html', context)
 
 
 @login_required(login_url='/login')  # Check login
 def orderdetail(request, id):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     order = OrderProduct.objects.get(user_id=current_user.id, id=id)
@@ -91,18 +103,21 @@ def orderdetail(request, id):
         'order': order,
         'orderitems': orderitems,
         'profile': profile,
+        'setting': setting,
     }
     return render(request, 'user_order_detail.html', context)
 
 
 @login_required(login_url='/login')  # Check login
 def comments(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     comments = Comment.objects.filter(user_id=current_user.id)
     context = {
         'category': category,
         'comments': comments,
+        'setting': setting,
     }
     return render(request, 'user_comments.html', context)
 
@@ -117,18 +132,21 @@ def deletecomment(request, id):
 
 @login_required(login_url='/login')  # Check login
 def products(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     current_user = request.user
     products = Product.objects.filter(user_id=current_user.id, status='True')
     context = {
         'category': category,
         'products': products,
+        'setting': setting,
     }
     return render(request, 'user_products.html', context)
 
 
 @login_required(login_url='/login')  # Check login
 def addproduct(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
@@ -143,7 +161,6 @@ def addproduct(request):
             data.image = form.cleaned_data['image']
             data.detail = form.cleaned_data['detail']
             data.slug = form.cleaned_data['slug']
-            data.amount = form.cleaned_data['amount']
             data.status = 'False'
             data.save()  # veritabanına kaydet
             messages.success(request, 'Your Content Insterted Successfuly')
@@ -157,12 +174,14 @@ def addproduct(request):
         context = {
             'category': category,
             'form': form,
+            'setting': setting,
         }
         return render(request, 'user_addproduct.html', context)
 
 
 @login_required(login_url='/login')  # Check login
 def productedit(request, id):
+    setting = Setting.objects.get(pk=1)
     product = Product.objects.get(id=id)
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES, instance=product)
@@ -179,6 +198,7 @@ def productedit(request, id):
         context = {
             'category': category,
             'form': form,
+            'setting': setting,
         }
         return render(request, 'user_addproduct.html', context)
 

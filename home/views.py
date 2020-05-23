@@ -78,6 +78,7 @@ def category_products(request, id, slug):
 
 
 def product_detail(request, id, slug):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     product = Product.objects.get(pk=id)
     images = Images.objects.filter(product_id=id)
@@ -86,11 +87,14 @@ def product_detail(request, id, slug):
                'category': category,
                'images': images,
                'comments': comments,
+               'setting': setting,
+
                }
     return render(request, 'product_detail.html', context)
 
 
 def product_search(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':  # Check form post
         form = SearchForm(request.POST)  # Get form data
         if form.is_valid():
@@ -107,6 +111,7 @@ def product_search(request):
             # return HttpResponse(products)
             context = {'products': products,
                        'category': category,
+                       'setting': setting,
                        }
             return render(request, 'products_search.html', context)
     return HttpResponseRedirect('/')
@@ -134,6 +139,7 @@ def logout_view(request):
 
 
 def login_view(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -146,12 +152,15 @@ def login_view(request):
             messages.error(request, "Login Hatası ! Kullanıcı adı yada şifre yanlış")
             return HttpResponseRedirect('/login')
     category = Category.objects.all()
-    context = {'category': category,
+    context = {
+        'category': category,
+        'setting': setting,
                }
     return render(request, 'login.html', context)
 
 
 def signup_view(request):
+    setting = Setting.objects.get(pk=1)
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -172,14 +181,17 @@ def signup_view(request):
     category = Category.objects.all()
     context = {'category': category,
                'form': form,
+               'setting': setting,
                }
     return render(request, 'signup.html', context)
 
 
 def faq(request):
+    setting = Setting.objects.get(pk=1)
     category = Category.objects.all()
     faq = FAQ.objects.all().order_by('ordernumber')
     context = {'category': category,
                'faq': faq,
+               'setting': setting,
                }
     return render(request, 'faq.html', context)

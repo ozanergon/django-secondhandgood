@@ -12,20 +12,19 @@ New Products
                     <div class="item active">
                         <ul class="thumbnails">
                             {% for rs in dayproducts %}
-                            <li class="span3">
-                                <div class="thumbnail">
-                                    <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
-                                            class="icon-search"></span> {{ rs.title }}</a>
-                                    <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="tag"></a>
-                                    <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="width: 150px; height: 150px;"
-                                            src="{{ rs.image.url}}" alt="bootstrap-ring"></a>
-                                    <p><strong> ${{ rs.price }}</strong></p>
-                                </div>
-                            </li>
+                                <li class="span3">
+                                    <div class="thumbnail">
+                                        <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
+                                                class="icon-search"></span> {{ rs.title }}</a>
+                                        <a href="/product/{{ rs.id }}/{{ rs.slug }}" class="tag"></a>
+                                        <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="width: 150px; height: 150px;"
+                                                                                          src="{{ rs.image.url}}" alt="bootstrap-ring"></a>
+                                        <p><strong> ₺{{ rs.price }}</strong></p>
+                                    </div>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
-
                 </div>
                 <a class="left carousel-control" href="#newProductCar" data-slide="prev">&lsaquo;</a>
                 <a class="right carousel-control" href="#newProductCar" data-slide="next">&rsaquo;</a>
@@ -35,26 +34,23 @@ New Products
             <h3>Lastest Products </h3>
             <ul class="thumbnails">
                 {% for rs in lastproducts %}
-                <li class="span4">
-
-                    <div class="thumbnail">
-
-                        <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
-                                class="icon-search"></span> QUICK VIEW</a>
-                        <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="height: 300px;" src="{{ rs.image.url}}" alt=""></a>
-                        <div class="caption cntr">
-                            <p>{{ rs.title }}</p>
-                            <p><strong> ${{ rs.price }}</strong></p>
-                            <h4><a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"> Add to cart </a></h4>
-                            <br class="clr">
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="height: 300px;" src="{{ rs.image.url}}" alt=""></a>
+                            <div class="caption cntr">
+                                <p>{{ rs.title }}</p>
+                                <p><strong> ₺{{ rs.price }}</strong></p>
+                                <h4><a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"> Ürünü İncele </a></h4>
+                                <br class="clr">
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
-
     <!--
     Featured Products
     -->
@@ -65,27 +61,26 @@ New Products
         <div class="row-fluid">
             <ul class="thumbnails">
                 {% for rs in randomproducts %}
-                <li class="span4">
-                    <div class="thumbnail">
-                        <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
-                                class="icon-search"></span> QUICK VIEW</a>
-                        <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="height: 300px;" src="{{ rs.image.url}}" alt=""></a>
-                        <div class="caption">
-                            <h5>{{ rs.title }}</h5>
-                            <h4>
-                                <a class="defaultBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="Click to view"><span
-                                        class="icon-zoom-in"></span></a>
-                                <a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span class="icon-plus"></span></a>
-                                <span class="pull-right">${{ rs.price }}</span>
-                            </h4>
+                    <li class="span4">
+                        <div class="thumbnail">
+                            <a class="zoomTool" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span
+                                    class="icon-search"></span> QUICK VIEW</a>
+                            <a href="/product/{{ rs.id }}/{{ rs.slug }}"><img style="height: 300px;" src="{{ rs.image.url}}" alt=""></a>
+                            <div class="caption">
+                                <h5>{{ rs.title }}</h5>
+                                <h4>
+                                    <a class="defaultBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="Click to view"><span
+                                            class="icon-zoom-in"></span></a>
+                                    <a class="shopBtn" href="/product/{{ rs.id }}/{{ rs.slug }}" title="add to cart"><span class="icon-plus"></span></a>
+                                    <span class="pull-right">₺{{ rs.price }}</span>
+                                </h4>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
-
     <div class="well well-small">
         <a class="btn btn-mini pull-right" href="#">View more <span class="icon-plus"></span></a>
         Popular Products
@@ -97,7 +92,6 @@ New Products
     </div>
 </div>
 </div>
-
 <!--
 Clients
 -->

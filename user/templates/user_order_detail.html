@@ -54,7 +54,7 @@
                 </tr>
                 <tr>
                     <th>Shipping Inf</th>
-                    <td>{{ profile.adminnote }}</td>
+                    <td>{{ order.order.adminnote }}</td>
                 </tr>
             </table>
 
@@ -66,8 +66,6 @@
                     <th class="text-left">Image</th>
                     <th class="text-left">Product name</th>
                     <th class="text-left">Price</th>
-                    <th class="text-left">Quantity</th>
-                    <th class="text-left">Amount</th>
                     <th class="text-left">Status</th>
                     <th class="text-left">Date</th>
                 </tr>
@@ -76,8 +74,6 @@
                         <td class="text-left"> <a href="/product/{{ order.product_id }}/{{ order.product.slug }}"><img style="height: 100px" src="{{ order.product.image.url }}"> </a> </td>
                         <td class="text-left">{{ order.product.title }}</td>
                         <td class="text-left">{{ order.price }}</td>
-                        <td class="text-left">{{ order.quantity }}</td>
-                        <td class="text-left">{{ order.amount }}</td>
                         <td class="text-left">{{ order.status }}</td>
                         <td class="text-left">{{ order.create_at }}</td>
                     </tr>

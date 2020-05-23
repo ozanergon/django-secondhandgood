@@ -38,29 +38,27 @@
                 <p><label for="id_firt_name">Country:</label>
                     <input type="text" name="country"class="input" id="id_country" value="{{ profile.country }}" maxlength=" "></p>
 
-                    <button type="submit" class="btn-primary">Complete Order</button>
-
-
+                <button type="submit" class="btn-primary">Complete Order</button>
             </div>
         </div>
         <div class="span6">
             <div class="well">
-            <div class="shipping-methods">
-                <div class="section-title">
-                    <h4 class="title">Payment Information</h4>
-                </div>
-                <p><label for="id_first_name">Total: </label>
-                    <input type="text" name="total" class="input" readonly value="${{ total }}"></p>
+                <div class="shipping-methods">
+                    <div class="section-title">
+                        <h4 class="title">Payment Information</h4>
+                    </div>
+                    <p><label for="id_first_name">Total: </label>
+                        <input type="text" name="total" class="input" readonly value="${{ total }}"></p>
 
-                <p><label for="id_first_name">Credit Card Holder</label>
-                    <input type="text" name="holder" class="input" value=""></p>
-                <p><label for="id_first_name">Credit Card Number</label>
-                    <input type="text" name="number" class="input" value=""></p>
-                <p><label for="id_first_name">Credit Exp Date/Year</label>
-                    <input type="text" name="ecpdate" class="input" value="mm/yy"></p>
-                <p><label for="id_first_name">Security Number</label>
-                    <input type="text" name="secnumber" class="input" value=""></p>
-            </div>
+                    <p><label for="id_first_name">Credit Card Holder</label>
+                        <input type="text" name="holder" class="input" value=""></p>
+                    <p><label for="id_first_name">Credit Card Number</label>
+                        <input type="text" name="number" class="input" value=""></p>
+                    <p><label for="id_first_name">Credit Exp Date/Year</label>
+                        <input type="text" name="ecpdate" class="input" value="mm/yy"></p>
+                    <p><label for="id_first_name">Security Number</label>
+                        <input type="text" name="secnumber" class="input" value=""></p>
+                </div>
             </div>
         </div>
     </form>

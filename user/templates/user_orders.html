@@ -24,9 +24,6 @@
 
             <table class="table table-bordered table-condensed">
                 <tr>
-                    <th class="text-left">Id</th>
-                    <th class="text-left">First Name</th>
-                    <th class="text-left">Last Name</th>
                     <th class="text-left">Product name</th>
                     <th class="text-left">Price</th>
                     <th class="text-left">Status</th>
@@ -35,10 +32,7 @@
                 </tr>
                 {% for rs in orders %}
                     <tr>
-                        <td class="text-left">{{ rs.id }}</td>
-                        <td class="text-left">{{ rs.user.first_name }}</td>
-                        <td class="text-left">{{ rs.user.last_name }}</td>
-                        <td class="text-left">{{ rs.product.title }}</td>
+                        <td style="width: 270px" class="text-left">{{ rs.product.title }}</td>
                         <td class="text-left">{{ rs.price }}</td>
                         <td class="text-left">{{ rs.status }}</td>
                         <td class="text-left">{{ rs.create_at }}</td>

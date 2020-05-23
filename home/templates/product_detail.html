@@ -12,7 +12,6 @@
     {% include "sidebar.html" %}
 {% endblock %}
 
-
 {% block content %}
     <div class="span9">
         <ul class="breadcrumb">
@@ -45,9 +44,9 @@
 
                     <form class="form-horizontal qtyFrm">
                         <div class="control-group">
-                            <label class="control-label"><span>${{ product.price}}</span></label>
+                            <label class="control-label"><span>₺{{ product.price}}</span></label>
                             <div class="controls">
-                                <input type="number" max="{{ product.amount }}"class="span6" placeholder="Qty.">
+                                <input type="number" class="span6" placeholder="Qty.">
                             </div>
                         </div>
 
@@ -63,22 +62,16 @@
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label"><span>Materials</span></label>
+                            <label class="control-label"><span>Ürün Açıklaması</span></label>
                             <div class="controls">
-                                <select class="span11">
-                                    <option>Material 1</option>
-                                    <option>Material 2</option>
-                                    <option>Material 3</option>
-                                    <option>Material 4</option>
-                                </select>
+                                {{ product.description }}
                             </div>
                         </div>
-                        <h4>{{ product.amount }} Adet Var</h4>
                         <p>
-                            {{ product.description }}
-                        <a>
-                        <br>
-                        <a href="/order/orderproduct/{{ product.id }}" <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Satın Al</button></a>
+
+                            <a>
+                                <br>
+                                <a href="/order/orderproduct/{{ product.id }}" <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Satın Al</button></a>
                     </form>
                 </div>
             </div>
@@ -169,14 +162,12 @@
                             <tr>
                                 <th> Comment </th>
                                 <th>
-                                <div class="review-body"> <b>{{ rs.subject }}</b>
-                                    <p>{{ rs.comment }}</p>
-                                </div>
+                                    <div class="review-body"> <b>{{ rs.subject }}</b>
+                                        <p>{{ rs.comment }}</p>
+                                    </div>
                                 </th>
                             </tr>
-
                         </table>
-
                     {% endfor %}
                 </div>
                 <div class="tab-pane fade" id="cat1">
@@ -236,10 +227,7 @@
                     </div>
                     <hr class="soften"/>
                 </div>
-
             </div>
-
         </div>
-    </div>
     </div>
 {% endblock %}

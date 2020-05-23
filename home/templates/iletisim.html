@@ -9,11 +9,9 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="span4">
         <div class="well">
             <h3 class="title">İletişim Formu</h3>
-
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-{{message.tags}}" role="alert">
@@ -21,7 +19,6 @@
                     </div>
                 {% endfor %}
             {% endif %}
-
             <form action="" method="post">
                 {% csrf_token %}
                 {{ form.as_p }}

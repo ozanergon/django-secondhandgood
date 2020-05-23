@@ -58,7 +58,6 @@ class Product(models.Model):
     description = models.CharField(blank=True, max_length=255)
     image = models.ImageField(blank=True, upload_to='images/')
     price = models.FloatField()
-    amount = models.IntegerField()
     detail = RichTextUploadingField()
     slug = models.SlugField(null=False, unique=True)
     status = models.CharField(max_length=10, choices=STATUS)
@@ -80,7 +79,7 @@ class Product(models.Model):
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        fields = ['category', 'title', 'keywords', 'description', 'image', 'price', 'amount', 'detail', 'slug']
+        fields = ['category', 'title', 'keywords', 'description', 'image', 'price', 'detail', 'slug']
         widgets = {
             'category': Select(attrs={'class': 'input', 'placeholder': 'amount'}, choices={Category.objects.all()}),
             'title': TextInput(attrs={'class': 'input', 'placeholder': 'title'}),
